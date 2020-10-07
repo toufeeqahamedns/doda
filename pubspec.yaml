@@ -1,0 +1,31 @@
+name: DODA
+description: Discuss On Drawings App.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: ^0.8.1
+
+flutter_icons:
+  ios: true
+  android: true
+  image_path_ios: "assets/app_icon.png"
+  image_path_android: "assets/app_icon.png"
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
