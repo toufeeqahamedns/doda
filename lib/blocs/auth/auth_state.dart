@@ -1,4 +1,4 @@
-import 'package:DODA/providers/user_provider.dart';
+import 'package:DODA/models/user.dart';
 import 'package:equatable/equatable.dart';
 
 enum AuthStatus { authenticated, unauthenticated, unknown }
@@ -6,19 +6,19 @@ enum AuthStatus { authenticated, unauthenticated, unknown }
 class AuthState extends Equatable {
   const AuthState._({
     this.status = AuthStatus.unknown,
-    this.user = UserProvider.empty,
+    this.user = User.empty,
   });
 
   const AuthState.unknown() : this._();
 
-  const AuthState.authenticated(UserProvider user)
+  const AuthState.authenticated(User user)
       : this._(status: AuthStatus.authenticated, user: user);
 
   const AuthState.unauthenticated()
       : this._(status: AuthStatus.unauthenticated);
 
   final AuthStatus status;
-  final UserProvider user;
+  final User user;
 
   @override
   List<Object> get props => [status, user];

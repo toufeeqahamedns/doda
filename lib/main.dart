@@ -2,28 +2,27 @@ import 'package:DODA/blocs/auth/auth_bloc.dart';
 import 'package:DODA/blocs/auth/auth_state.dart';
 import 'package:DODA/providers/api_provider.dart';
 import 'package:DODA/providers/auth_provider.dart';
-import 'package:DODA/providers/user_provider.dart';
+import 'package:DODA/models/user.dart';
 import 'package:DODA/views/home_screen.dart';
 import 'package:DODA/views/login_screen.dart';
 import 'package:DODA/views/splash_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MultiProvider(
     providers: [
       Provider(
         create: (_) => AuthProvider(),
       ),
-      Provider(
-        create: (_) => UserProvider.empty,
-      ),
       Provider(create: (_) => ApiProvider())
     ],
-    child: Consumer2(
-      builder: (BuildContext context, AuthProvider authProvider,
-          UserProvider userProvider, Widget child) {
+    child: Consumer(
+      builder: (BuildContext context, AuthProvider authProvider, Widget child) {
         return BlocProvider(
           create: (_) => AuthBloc(authProvider: authProvider),
           child: DODA(),

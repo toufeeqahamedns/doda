@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
-class UserProvider extends Equatable {
-  const UserProvider({
+class User extends Equatable {
+  const User({
     @required this.email,
     @required this.id,
     @required this.name,
@@ -15,7 +15,7 @@ class UserProvider extends Equatable {
   final String name;
   final String photo;
 
-  static const empty = UserProvider(email: '', id: '', name: null, photo: null);
+  static const empty = User(email: '', id: '', name: null, photo: null);
 
   @override
   List<Object> get props => [email, id, name, photo];

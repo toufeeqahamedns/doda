@@ -1,4 +1,4 @@
-import 'package:DODA/providers/user_provider.dart';
+import 'package:DODA/models/user.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class AuthEvent extends Equatable {
@@ -11,7 +11,7 @@ abstract class AuthEvent extends Equatable {
 class AuthUserChanged extends AuthEvent {
   const AuthUserChanged(this.user);
 
-  final UserProvider user;
+  final User user;
 
   @override
   List<Object> get props => [user];
