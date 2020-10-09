@@ -22,7 +22,7 @@ class AddMarkersScreen extends StatefulWidget {
 class _AddMarkersScreenState extends State<AddMarkersScreen> {
   List<Widget> stackWidgets = List();
 
-  Future<void> _bottomSheet(ApiProvider apiProvider) async {
+  Future<void> _bottomSheet(ApiProvider apiProvider, String heading) async {
     showModalBottomSheet(
         context: context,
         shape: RoundedRectangleBorder(
@@ -155,9 +155,13 @@ class _AddMarkersScreenState extends State<AddMarkersScreen> {
         .map((doc) => Positioned(
               left: doc["position"]["dx"],
               top: doc["position"]["dy"],
-              child: Icon(
-                Icons.pin_drop,
-                size: 48.0,
+              child: IconButton(
+                iconSize: 32.0,
+                icon: Icon(Icons.pin_drop),
+                onPressed: () {
+                  _bottomSheet(Provider.of<ApiProvider>(context, listen: false),
+                      "Marker Details");
+                },
                 color: Colors.blue,
               ),
             ))
@@ -182,7 +186,7 @@ class _AddMarkersScreenState extends State<AddMarkersScreen> {
                       size: 32.0,
                     ),
                     onPressed: () {
-                      _bottomSheet(apiProvider);
+                      _bottomSheet(apiProvider, "All Markings");
                     },
                   ),
                 )
