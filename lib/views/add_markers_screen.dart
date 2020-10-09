@@ -38,7 +38,7 @@ class _AddMarkersScreenState extends State<AddMarkersScreen> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    "Markings",
+                    heading,
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,

@@ -59,30 +59,36 @@ class ProfileScreen extends StatelessWidget {
                                 ConnectionState.active) {
                               if (snapshot.data.size == 0) {
                                 return Card(
-                                  child: Column(
-                                    children: [
-                                      Text(
-                                        "Drawings",
-                                        style: TextStyle(
-                                            fontSize: 12.0,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      Text("0")
-                                    ],
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(16.0),
+                                    child: Column(
+                                      children: [
+                                        Text(
+                                          "Drawings",
+                                          style: TextStyle(
+                                              fontSize: 12.0,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        Text("0")
+                                      ],
+                                    ),
                                   ),
                                 );
                               } else {
                                 return Card(
-                                  child: Column(
-                                    children: [
-                                      Text(
-                                        "Drawings",
-                                        style: TextStyle(
-                                            fontSize: 12.0,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      Text(snapshot.data.docs.length.toString())
-                                    ],
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(16.0),
+                                    child: Column(
+                                      children: [
+                                        Text(
+                                          "Drawings",
+                                          style: TextStyle(
+                                              fontSize: 12.0,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        Text(snapshot.data.docs.length.toString())
+                                      ],
+                                    ),
                                   ),
                                 );
                               }
@@ -101,30 +107,36 @@ class ProfileScreen extends StatelessWidget {
                                 ConnectionState.active) {
                               if (snapshot.data.size == 0) {
                                 return Card(
-                                  child: Column(
-                                    children: [
-                                      Text(
-                                        "Markers",
-                                        style: TextStyle(
-                                            fontSize: 12.0,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      Text("0")
-                                    ],
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(16.0),
+                                    child: Column(
+                                      children: [
+                                        Text(
+                                          "Markers",
+                                          style: TextStyle(
+                                              fontSize: 12.0,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        Text("0")
+                                      ],
+                                    ),
                                   ),
                                 );
                               } else {
                                 return Card(
-                                  child: Column(
-                                    children: [
-                                      Text(
-                                        "Markers",
-                                        style: TextStyle(
-                                            fontSize: 12.0,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      Text(snapshot.data.docs.length.toString())
-                                    ],
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(16.0),
+                                    child: Column(
+                                      children: [
+                                        Text(
+                                          "Markers",
+                                          style: TextStyle(
+                                              fontSize: 12.0,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        Text(snapshot.data.docs.length.toString())
+                                      ],
+                                    ),
                                   ),
                                 );
                               }

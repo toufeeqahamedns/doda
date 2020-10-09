@@ -9,27 +9,6 @@ import 'package:provider/provider.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class DrawingsScreen extends StatelessWidget {
-  // Widget showSheet(snapshot)  {
-  //   return showModalBottomSheet(context: context, builder: (_) {
-  //     if (snapshot.hasError) {
-  //                   return Center(
-  //                     child: Text("Error while fetching data"),
-  //                   );
-  //                 } else if (snapshot.connectionState ==
-  //                     ConnectionState.active) {
-  //                   if (snapshot.data.size == 0) {
-  //                     return Center(
-  //                       child: Text("No Drawings found. Add some!!!"),
-  //                     );
-  //                   } else {
-  //                     return _buildCarousel(context, snapshot.data.docs);
-  //                   }
-  //                 }
-  //                 return Center(child: CircularProgressIndicator());
-  //               }
-  //   })
-  // }
-
   Widget _buildCarousel(
       BuildContext context, List<QueryDocumentSnapshot> docSnapshots) {
     return Expanded(
@@ -158,10 +137,13 @@ class DrawingsScreen extends StatelessWidget {
                   "Drawings",
                   style: TextStyle(fontSize: 32.0),
                 ),
-                Image.asset(
-                  "assets/app_icon.png",
-                  height: 32.0,
-                  width: 32.0,
+                Hero(
+                  tag: "logo",
+                  child: Image.asset(
+                    "assets/app_icon.png",
+                    height: 32.0,
+                    width: 32.0,
+                  ),
                 ),
               ],
             ),
