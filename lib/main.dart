@@ -2,7 +2,6 @@ import 'package:DODA/blocs/auth/auth_bloc.dart';
 import 'package:DODA/blocs/auth/auth_state.dart';
 import 'package:DODA/providers/api_provider.dart';
 import 'package:DODA/providers/auth_provider.dart';
-import 'package:DODA/models/user.dart';
 import 'package:DODA/views/home_screen.dart';
 import 'package:DODA/views/login_screen.dart';
 import 'package:DODA/views/splash_screen.dart';
@@ -21,10 +20,12 @@ void main() async {
       ),
       Provider(create: (_) => ApiProvider())
     ],
-    child: Consumer(
-      builder: (BuildContext context, AuthProvider authProvider, Widget child) {
+    child: Consumer2(
+      builder: (BuildContext context, AuthProvider authProvider,
+          ApiProvider apiProvider, Widget child) {
         return BlocProvider(
-          create: (_) => AuthBloc(authProvider: authProvider),
+          create: (_) =>
+              AuthBloc(authProvider: authProvider, apiProvider: apiProvider),
           child: DODA(),
         );
       },

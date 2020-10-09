@@ -3,6 +3,39 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatelessWidget {
+  Widget _googleSignInButton() {
+    return Consumer(
+      builder: (BuildContext context, AuthProvider authProvider, Widget child) {
+        return MaterialButton(
+          height: 40.0,
+          onPressed: () => authProvider.signInWithGoogle(),
+          color: Colors.white,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Image.asset(
+                "assets/google_logo.png",
+                height: 18.0,
+                width: 18.0,
+              ),
+              SizedBox(
+                width: 24.0,
+              ),
+              Opacity(
+                opacity: 0.54,
+                child: Text(
+                  "Sign in with Google",
+                  style: TextStyle(
+                      fontFamily: 'Roboto-Medium', color: Colors.black),
+                ),
+              )
+            ],
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -20,38 +53,7 @@ class LoginScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
                 ),
                 Spacer(),
-                Consumer(
-                  builder: (BuildContext context, AuthProvider authProvider,
-                      Widget child) {
-                    return MaterialButton(
-                      height: 40.0,
-                      onPressed: () => authProvider.signInWithGoogle(),
-                      color: Colors.white,
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          Image.asset(
-                            "assets/google_logo.png",
-                            height: 18.0,
-                            width: 18.0,
-                          ),
-                          SizedBox(
-                            width: 24.0,
-                          ),
-                          Opacity(
-                            opacity: 0.54,
-                            child: Text(
-                              "Sign in with Google",
-                              style: TextStyle(
-                                  fontFamily: 'Roboto-Medium',
-                                  color: Colors.black),
-                            ),
-                          )
-                        ],
-                      ),
-                    );
-                  },
-                ),
+                _googleSignInButton(),
                 Spacer(),
               ],
             ),

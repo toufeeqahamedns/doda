@@ -47,6 +47,7 @@ AuthProvider({
 
 extension on firebase_Auth.User {
   User get toUser {
+    
     return User(id: uid, email: email, name: displayName, photo: photoURL);
   }
 }
